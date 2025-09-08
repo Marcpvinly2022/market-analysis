@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -10,6 +9,8 @@ export const metadata: Metadata = {
   generator: 'v0.app',
 }
 
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`font-sans ${inter.variable}`}>
         {children}
         <Analytics />
       </body>
